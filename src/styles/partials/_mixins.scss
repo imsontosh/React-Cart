@@ -1,0 +1,36 @@
+// rem fallback - credits: http://zerosixthree.se/
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+/*Transform and hide the element */
+
+@mixin HideElementWithTransform($transformType,$transformLength : -100%){
+	-webkit-backface-visibility: hidden;
+	@include fixed(0px);
+	@if $transformType == left {
+			@include transform(translatex($transformLength));
+		}
+	@else if $transformType == top {
+			@include transform(translatey($transformLength));
+		}
+	@include transition(transform .5s 0s);
+}
+
+/*Transform and show the element */
+@mixin ShowElementWithTransform($transformType) {
+	@if $transformType == left {
+			@include transform(translatex(0));
+	}
+	@else if $transformType == top {
+			@include transform(translatey(0));
+	}
+}
+

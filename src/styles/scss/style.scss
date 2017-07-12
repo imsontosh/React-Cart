@@ -1,0 +1,203 @@
+/* -------------------------------- 
+
+Import variable,mixins and other style
+
+-------------------------------- */
+
+@import "../partials/variables";
+@import "../partials/mixins";
+@import "../partials/layout";
+@import "../partials/juice";
+@import "./reset.scss";
+@import "./cart_item.scss";
+@import "./cart_bill.scss";
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+html * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font: {
+        size: 100%;
+        family: $primary-font;
+    }
+    color: $main-text;
+    background-color: $background;
+}
+
+
+/* -------------------------------- 
+
+Reused style
+
+-------------------------------- */
+
+//Content class for all inner content
+.content {
+    @include size(100%, auto);
+    max-width: $max-width;
+    margin: 0px auto;
+    @include clearfix;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.borderStyle {
+    border: $border;
+}
+
+
+/* -------------------------------- 
+
+Component : Header style
+
+-------------------------------- */
+
+.parent-container {}
+
+.container {
+    @extend .content;
+    header {
+        border-bottom: $border;
+        h1 {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            @include MQ(S) {
+                @include font-size(18px);
+            }
+            @include MQ(M) {
+                @include font-size(22px);
+            }
+            @include MQ(L) {
+                @include font-size(26px);
+            }
+        }
+    }
+    main {
+        @include clearfix;
+        padding-top: 15px;
+    }
+    .filter-container {
+        @include MX(S) {
+            position: absolute
+        }
+        @include MQ(M) {
+            @include column(1/3);
+            @include font-size(22px);
+        }
+        @include MQ(L) {
+            @include column(1/4);
+            @include font-size(26px);
+        }
+        .form-wrapper {
+            width: 90%;
+            padding-bottom: 15px;
+            padding-left: 5px;
+            padding-right: 5px;
+            border: $border;
+            input[type=text],
+            input[type=number] {
+                margin-top: 15px;
+                display: block;
+                width: 98%;
+                -webkit-transition: all 0.30s ease-in-out;
+                -moz-transition: all 0.30s ease-in-out;
+                -ms-transition: all 0.30s ease-in-out;
+                -o-transition: all 0.30s ease-in-out;
+                outline: none;
+                padding: 3px 0px 3px 3px;
+                margin: 5px 1px 3px 0px;
+                border: 1px solid #DDDDDD;
+                height: 34px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555;
+                vertical-align: middle;
+                background-color: #fff;
+                background-image: none;
+                &:focus {
+                    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+                    padding: 3px 0px 3px 3px;
+                    margin: 5px 1px 3px 0px;
+                    border: 1px solid rgba(81, 203, 238, 1);
+                }
+            }
+            .button {
+                display: inline-block;
+                margin-bottom: 0;
+                font-weight: normal;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                white-space: nowrap;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                border-radius: 4px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+                background-color: #41c7c2;
+                color: whitesmoke;
+                font-weight: 400;
+                margin-top: 15px;
+                &:active {
+                    color: white;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+            .select-control {
+                display: block;
+                width: 58%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555;
+                vertical-align: middle;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                /* -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+                /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); */
+                -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                margin-top: 6px;
+            }
+            textarea:focus,
+            input:focus,
+            .select-control {
+                outline: none;
+            }
+        }
+    }
+    .result-container {
+        @include MQ(S) {
+            @include column(1);
+        }
+        @include MX(S) {
+            position: absolute
+        }
+        @include MQ(M) {
+            @include column(2/3);
+            @include font-size(22px);
+        }
+        @include MQ(L) {
+            @include column(3/4);
+            @include font-size(26px);
+        }
+    }
+}

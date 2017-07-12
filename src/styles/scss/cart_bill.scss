@@ -1,0 +1,25 @@
+.cust-details {
+    ul li {
+        padding: 15px 0;
+        font-size: 12px
+    }
+    &.xs-hidden {
+        @media (max-width: 768px) {
+            display: none
+        }
+    }
+}
+
+.bill-detail {
+    .row {
+        padding: 15px 0;
+        font-size: 13px
+    }
+    .final-total {
+        font-size: 16px
+    }
+    .final-total-sub {
+        font-size: 12px
+    }
+}
+
